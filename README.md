@@ -31,15 +31,15 @@ ShopScale is built with a decoupled 4-tier architecture designed for horizontal 
 
 ```mermaid
 graph TD
-    Client[Client (React SPA on Vercel)] -->|REST API Requests| LB[Load Balancer / Cloud Gateway]
+    Client["Client (React SPA on Vercel)"] -->|"REST API Requests"| LB["Load Balancer / Cloud Gateway"]
     
     subgraph "Stateless Backend Cluster"
-    LB -->|Routing| API1[Node.js / Express Instance 1]
-    LB -->|Routing| API2[Node.js / Express Instance 2]
+    LB -->|"Routing"| API1["Node.js / Express Instance 1"]
+    LB -->|"Routing"| API2["Node.js / Express Instance 2"]
     end
     
-    API1 -->|SQL Queries| DB[(Serverless PostgreSQL - Neon/Supabase)]
-    API2 -->|SQL Queries| DB
+    API1 -->|"SQL Queries"| DB[("Serverless PostgreSQL - Neon/Supabase")]
+    API2 -->|"SQL Queries"| DB
     
     classDef node fill:#43853D,stroke:#fff,stroke-width:2px,color:#fff;
     classDef db fill:#316192,stroke:#fff,stroke-width:2px,color:#fff;
