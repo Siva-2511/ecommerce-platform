@@ -17,10 +17,13 @@ const ACCOUNT_LINKS = [
   { name: 'Shopping Bag',to: '/cart' },
 ];
 
+const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:3001/api';
+const SERVER_URL = API_BASE.replace(/\/api$/, '');
+
 const ARCHITECTURE_LINKS = [
   { name: 'GitHub Repository',     href: 'https://github.com/Siva-2511/ecommerce-platform', external: true },
-  { name: 'API Health Check',      href: '/health', external: true },
-  { name: 'Load Balancer Demo',    href: '/api/instance', external: true },
+  { name: 'API Health Check',      href: `${SERVER_URL}/health`, external: true },
+  { name: 'Load Balancer Demo',    href: `${SERVER_URL}/api/instance`, external: true },
 ];
 
 const Footer = () => {
