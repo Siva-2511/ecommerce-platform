@@ -10,7 +10,7 @@ import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import OrdersPage from './pages/OrdersPage';
 import AdminDashboard from './pages/AdminDashboard';
-
+import SystemStatusPage from './pages/SystemStatusPage';
 function App() {
   return (
     <Router>
@@ -27,6 +27,7 @@ function App() {
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/orders" element={<OrdersPage />} />
             <Route path="/admin/*" element={<AdminDashboard />} />
+            <Route path="/system-status" element={<SystemStatusPage />} />
           </Routes>
         </main>
 

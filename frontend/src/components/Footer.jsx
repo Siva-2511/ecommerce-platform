@@ -17,13 +17,9 @@ const ACCOUNT_LINKS = [
   { name: 'Shopping Bag',to: '/cart' },
 ];
 
-const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:3001/api';
-const SERVER_URL = API_BASE.replace(/\/api$/, '');
-
 const ARCHITECTURE_LINKS = [
   { name: 'GitHub Repository',     href: 'https://github.com/Siva-2511/ecommerce-platform', external: true },
-  { name: 'API Health Check',      href: `${SERVER_URL}/health`, external: true },
-  { name: 'Load Balancer Demo',    href: `${SERVER_URL}/api/instance`, external: true },
+  { name: 'System Status',         to: '/system-status' },
 ];
 
 const Footer = () => {
@@ -113,17 +109,29 @@ const Footer = () => {
           <div className="uppercase" style={{ color: 'rgba(255,255,255,0.45)', fontSize: '0.65rem', marginBottom: '1.25rem', letterSpacing: '0.1em' }}>Architecture</div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
             {ARCHITECTURE_LINKS.map(l => (
-              <a
-                key={l.name}
-                href={l.href}
-                target={l.external ? '_blank' : '_self'}
-                rel={l.external ? 'noopener noreferrer' : undefined}
-                style={{ fontSize: '0.875rem', color: 'rgba(255,255,255,0.7)', transition: 'color 150ms', display: 'flex', alignItems: 'center', gap: '0.375rem' }}
-                onMouseEnter={e => e.currentTarget.style.color = '#ffffff'}
-                onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.7)'}
-              >
-                {l.name} {l.external && <ExternalLink size={12} />}
-              </a>
+              l.to ? (
+                <Link
+                  key={l.name}
+                  to={l.to}
+                  style={{ fontSize: '0.875rem', color: 'rgba(255,255,255,0.7)', transition: 'color 150ms', display: 'flex', alignItems: 'center', gap: '0.375rem' }}
+                  onMouseEnter={e => e.currentTarget.style.color = '#ffffff'}
+                  onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.7)'}
+                >
+                  {l.name}
+                </Link>
+              ) : (
+                <a
+                  key={l.name}
+                  href={l.href}
+                  target={l.external ? '_blank' : '_self'}
+                  rel={l.external ? 'noopener noreferrer' : undefined}
+                  style={{ fontSize: '0.875rem', color: 'rgba(255,255,255,0.7)', transition: 'color 150ms', display: 'flex', alignItems: 'center', gap: '0.375rem' }}
+                  onMouseEnter={e => e.currentTarget.style.color = '#ffffff'}
+                  onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.7)'}
+                >
+                  {l.name} {l.external && <ExternalLink size={12} />}
+                </a>
+              )
             ))}
 
             {/* Tech stack summary */}
