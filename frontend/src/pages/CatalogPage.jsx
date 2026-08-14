@@ -66,14 +66,20 @@ const CatalogPage = () => {
       {isHome && (
         <div style={{ position: 'relative', overflow: 'hidden', height: 420, backgroundColor: 'var(--color-primary)' }}>
           {/* Ken-Burns background */}
-          <div
+          <img
             className="hero-bg-img"
+            src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1200&q=70&fm=webp"
+            alt="New Season Collection"
+            fetchPriority="high"
+            loading="eager"
+            decoding="sync"
             style={{
               position: 'absolute', inset: 0,
-              backgroundImage: 'url(https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1600&q=80)',
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
+              width: '100%', height: '100%',
+              objectFit: 'cover',
+              objectPosition: 'center',
               opacity: 0.35,
+              pointerEvents: 'none',
             }}
           />
 
