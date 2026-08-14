@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Github, Mail, ExternalLink } from 'lucide-react';
+import { Code, Mail, ExternalLink } from 'lucide-react';
 
 const CATEGORIES = [
   { name: 'All Collection', to: '/' },
@@ -55,7 +55,7 @@ const Footer = () => {
               onMouseEnter={e => e.currentTarget.style.color = '#ffffff'}
               onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.6)'}
             >
-              <Github size={20} />
+              <Code size={20} />
             </a>
             <a
               href="mailto:admin@shopscale.com"
